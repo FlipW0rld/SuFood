@@ -1,0 +1,20 @@
+version: '3.8'
+
+
+services:
+
+
+  db:
+    image: postgres:15.2-alpine
+    environment:
+      POSTGRES_DB: onlineorder
+      POSTGRES_PASSWORD: secret
+      TZ: UTC
+    volumes:
+      - onlineorder-pg-local:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+
+volumes:
+  onlineorder-pg-local:
